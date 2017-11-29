@@ -1,5 +1,27 @@
-// n -- days of avg home sale price data
-// k -- fixed window size
-function solve(n, k) {
+const fs = require('fs');
 
-}
+const FILE = 'input.txt';
+
+const getData = file => new Promise((resolve, reject) => {
+  fs.readFile(file, 'utf-8', (err, data) => {
+    if (err) {
+      reject(err);
+    } else {
+      resolve(data);
+    }
+  });
+});
+
+const getInputs = (data) => {
+};
+
+const solve = (inputs) => {
+  // n -- days of avg home sale price data
+  // k -- fixed window size
+  // windows -- subranges array
+};
+
+getData(FILE)
+  .then(data => getInputs(data))
+  .then(inputs => solve(inputs))
+  .catch((err) => { console.log(err); });
