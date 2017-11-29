@@ -15,7 +15,7 @@ const getData = file => new Promise((resolve, reject) => {
 const getInputs = (data) => {
   let n;
   let k;
-  let windows = [];
+  let prices = [];
   const lines = data.split('\n');
   if (data.match(/[^\d\w\s]/)) throw new Error('Invalid Input: Can only contain numbers');
   if (lines.length > 3) throw new Error('Invalid Input: Too many lines');
@@ -27,21 +27,21 @@ const getInputs = (data) => {
     throw Error('Invalid Input: The first line should contain two numbers');
   }
   if (lineTwo.length >= 1) {
-    windows = lineTwo.map(s => Number(s));
+    prices = lineTwo.map(s => Number(s));
   } else {
     throw new Error('Invalid Input: The second line should contain at least one number');
   }
-  if (n !== windows.length) {
+  if (n !== prices.length) {
     throw new Error('Invalid Input: There must be N number of prices in line two');
   }
-  console.log({ n, k, windows });
-  return { n, k, windows };
+  console.log({ n, k, prices });
+  return { n, k, prices };
 };
 
 const solve = (inputs) => {
   // n -- days of avg home sale price data
   // k -- fixed window size
-  // windows -- subranges array
+  // prices -- list of each day's avg home sale prices
 };
 
 getData(FILE)
