@@ -13,6 +13,29 @@ const getData = file => new Promise((resolve, reject) => {
 });
 
 const getInputs = (data) => {
+  let n;
+  let k;
+  let windows = [];
+  const lines = data.split('\n');
+  if (data.match(/[^\d\w\s]/)) throw new Error('Invalid Input: Can only contain numbers');
+  if (lines.length > 3) throw new Error('Invalid Input: Too many lines');
+  const lineOne = lines[0].match(/\d+/g);
+  const lineTwo = lines[1].match(/\d+/g);
+  if (lineOne.length === 2) {
+    [n, k] = lineOne.map(s => Number(s));
+  } else {
+    throw Error('Invalid Input: The first line should contain two numbers');
+  }
+  if (lineTwo.length >= 1) {
+    windows = lineTwo.map(s => Number(s));
+  } else {
+    throw new Error('Invalid Input: The second line should contain at least one number');
+  }
+  if (n !== windows.length) {
+    throw new Error('Invalid Input: There must be N number of prices in line two');
+  }
+  console.log({ n, k, windows });
+  return { n, k, windows };
 };
 
 const solve = (inputs) => {
