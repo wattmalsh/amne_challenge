@@ -1,0 +1,5 @@
+// n -- days of avg home sale price data
+// k -- fixed window size
+function solve(n, k) {
+
+}
